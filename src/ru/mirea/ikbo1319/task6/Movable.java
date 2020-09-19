@@ -10,4 +10,6 @@ public interface Movable {
     void movDown(double destination);
     void movLeft(double destination);
     void movRight(double destination);
+
+    void move(double x, double y);
 }

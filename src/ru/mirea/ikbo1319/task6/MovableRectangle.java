@@ -1,42 +1,60 @@
 package ru.mirea.ikbo1319.task6;
 
-public class MovableRectangle extends MovablePoint{
-    private double width;
-    private double height;
+import ru.mirea.ikbo1319.task5.Rectangle;
 
-    public MovableRectangle(){
-        super();
-        width = 1;
-        height = 1;
+public class MovableRectangle extends Rectangle implements Movable {
+    private double x;
+    private double y;
+
+    public MovableRectangle(double x, double y, double width, double height, boolean visible){
+        super(width, height, visible);
+        this.x = x;
+        this.y = y;
     }
 
-    public MovableRectangle(double x, double y, double width, double height){
-        super(x, y);
-        this.width = width;
-        this.height = height;
+    @Override
+    public void movUp() {
+        y++;
     }
 
-    public double getArea(){
-        return width * height;
+    @Override
+    public void movDown() {
+        y--;
     }
 
-    public double getPerimeter(){
-        return 2 * width + 2 * height;
+    @Override
+    public void movLeft() {
+        x--;
     }
 
-    public double getWidth() {
-        return width;
+    @Override
+    public void movRight() {
+        x++;
     }
 
-    public void setWidth(double width) {
-        this.width = width;
+    @Override
+    public void movUp(double destination) {
+        y += destination;
     }
 
-    public double getHeight() {
-        return height;
+    @Override
+    public void movDown(double destination) {
+        y -= destination;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
+    @Override
+    public void movLeft(double destination) {
+        x -= destination;
+    }
+
+    @Override
+    public void movRight(double destination) {
+        x += destination;
+    }
+
+    @Override
+    public void move(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 }

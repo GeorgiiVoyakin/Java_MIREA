@@ -16,22 +16,22 @@ public class MovablePoint implements Movable {
 
     @Override
     public void movUp() {
-        y += 1;
+        y++;
     }
 
     @Override
     public void movDown() {
-        y -= 1;
+        y--;
     }
 
     @Override
     public void movLeft() {
-        x -= 1;
+        x--;
     }
 
     @Override
     public void movRight() {
-        x += 1;
+        x++;
     }
 
     @Override
@@ -52,5 +52,19 @@ public class MovablePoint implements Movable {
     @Override
     public void movRight(double destination) {
         x += destination;
+    }
+
+    @Override
+    public void move(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "MovablePoint{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
