@@ -7,13 +7,13 @@
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="40.0" y="15.0" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="99.0" y="127.0" />
   <SelectedNodes>
     <node>ru.mirea.ikbo1319.task3.Book</node>
   </SelectedNodes>
   <Categories>
-    <Category>Constructors</Category>
     <Category>Fields</Category>
+    <Category>Constructors</Category>
     <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
