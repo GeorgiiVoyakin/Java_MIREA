@@ -3,11 +3,11 @@
   <ID>JAVA</ID>
   <OriginalElement>ru.mirea.ikbo1319.task3.Book</OriginalElement>
   <nodes>
-    <node x="-281.0" y="-92.0">ru.mirea.ikbo1319.task3.Book</node>
+    <node x="-669.0" y="-130.0">ru.mirea.ikbo1319.task3.Book</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="99.0" y="127.0" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="-323.0" y="25.0" />
   <SelectedNodes>
     <node>ru.mirea.ikbo1319.task3.Book</node>
   </SelectedNodes>
