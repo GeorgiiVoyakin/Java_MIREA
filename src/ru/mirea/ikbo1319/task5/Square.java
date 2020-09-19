@@ -1,29 +1,26 @@
 package ru.mirea.ikbo1319.task5;
 
 public class Square extends Shape {
-    private double a;
+    private double side;
 
-    public Square(){
-        a = 1;
+    public Square(double side, boolean visible){
+        super(visible);
+        this.side = side;
     }
 
-    public Square(double a){
-        this.a = a;
+    public double getSide() {
+        return side;
     }
 
-    public double getA() {
-        return a;
-    }
-
-    public void setA(double a) {
-        this.a = a;
+    public void setSide(double side) {
+        this.side = side;
     }
 
     public double getArea(){
-        return a * a;
+        return side * side;
     }
 
     public double getPerimeter(){
-        return 4 * a;
+        return 4 * side;
     }
 }

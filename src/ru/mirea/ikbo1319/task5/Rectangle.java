@@ -4,12 +4,8 @@ public class Rectangle extends Shape{
     private double width;
     private double height;
 
-    public Rectangle() {
-        width = 1;
-        height = 1;
-    }
-
-    public Rectangle(double width, double height){
+    public Rectangle(double width, double height, boolean visible){
+        super(visible);
         this.width = width;
         this.height = height;
     }
