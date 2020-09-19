@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.mirea.ikbo1319.task5.Rectangle</OriginalElement>
+  <nodes>
+    <node x="-91.0" y="-107.0">ru.mirea.ikbo1319.task5.Shape</node>
+    <node x="-115.0" y="45.0">ru.mirea.ikbo1319.task5.Rectangle</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.mirea.ikbo1319.task5.Rectangle" target="ru.mirea.ikbo1319.task5.Shape">
+      <point x="0.0" y="-127.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="60.0" y="55.0" />
+  <SelectedNodes>
+    <node>ru.mirea.ikbo1319.task5.Shape</node>
+    <node>ru.mirea.ikbo1319.task5.Rectangle</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
