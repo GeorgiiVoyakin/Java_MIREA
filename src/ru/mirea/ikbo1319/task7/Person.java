@@ -13,6 +13,12 @@ public class Person {
         this.name = name;
     }
 
+    public Person(double balance, String name) {
+        this.balance = balance;
+        this.name = name;
+        shoppingBag = new ArrayList<>();
+    }
+
     public ArrayList<Furniture> getShoppingBag() {
         return shoppingBag;
     }
@@ -35,5 +41,10 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void addProduct(FurnitureShop shop, int id){
+        balance -= shop.getPrice(id);
+        shoppingBag.add(shop.removeItem(id));
     }
 }

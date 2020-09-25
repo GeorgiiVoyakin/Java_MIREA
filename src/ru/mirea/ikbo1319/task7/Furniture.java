@@ -1,5 +1,7 @@
 package ru.mirea.ikbo1319.task7;
 
+import java.util.ArrayList;
+
 public class Furniture {
     private double width;
     private double height;
