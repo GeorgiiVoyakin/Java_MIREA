@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -48,13 +48,17 @@ public class TesterFx extends Application {
             int choice = generator.nextInt(3);
             switch (choice){
                 case 0:
-                    Line line = new Line();
-                    line.setStartX(generator.nextInt(500));
-                    line.setStartY(0);
-                    line.setEndX(generator.nextInt(500));
-                    line.setEndY(600);
-                    line.setStroke(getRandomColor());
-                    group.getChildren().add(line);
+                    /*
+                    Circle circle = new Circle();
+                    ru.mirea.ikbo1319.task8.Circle template = new ru.mirea.ikbo1319.task8.Circle()
+                    group.getChildren().add(circle);*/
+
+                    Circle circle = new Circle();
+                    circle.setCenterX(generator.nextInt(800));
+                    circle.setCenterY(generator.nextInt(600));
+                    circle.setRadius(generator.nextInt(30));
+                    circle.setFill(getRandomColor());
+                    group.getChildren().add(circle);
                     break;
                 case 1:
                     Rectangle rectangle = new Rectangle();
@@ -68,9 +72,9 @@ public class TesterFx extends Application {
                 case 2:
                     Polygon polygon = new Polygon();
                     polygon.getPoints().addAll(new Double[]{
-                            (double) generator.nextInt(50), (double) generator.nextInt(50),
-                            (double) generator.nextInt(50), (double) generator.nextInt(50),
-                            (double) generator.nextInt(50), (double) generator.nextInt(50),
+                            (double) generator.nextInt(800), (double) generator.nextInt(600),
+                            (double) generator.nextInt(800), (double) generator.nextInt(600),
+                            (double) generator.nextInt(800), (double) generator.nextInt(600),
                     });
                     polygon.setFill(getRandomColor());
                     group.getChildren().add(polygon);
