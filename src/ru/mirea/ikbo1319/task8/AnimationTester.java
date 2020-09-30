@@ -1,34 +1,17 @@
 package ru.mirea.ikbo1319.task8;
 
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.FileInputStream;
-
 public class AnimationTester extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Image image = new Image(new FileInputStream("C:\\Users\\Xiaomi\\Desktop\\SomeImage.jpg"));
-        Image image2 = new Image(new FileInputStream("C:\\Users\\Xiaomi\\Desktop\\DIGIT.png"));
-
-        ImageView imageView = new ImageView(image);
-        imageView.setX(50);
-        imageView.setY(25);
-        imageView.setFitHeight(455);
-        imageView.setFitWidth(500);
-        imageView.setPreserveRatio(true);
-
-
-
         Text text = new Text();
 
         text.setText("Java");
@@ -44,8 +27,7 @@ public class AnimationTester extends Application {
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
 
-        //Group group = new Group(text);
-        Group group = new Group(imageView);
+        Group group = new Group(text);
         Scene scene = new Scene(group,800, 600);
         stage.setScene(scene);
         stage.show();
