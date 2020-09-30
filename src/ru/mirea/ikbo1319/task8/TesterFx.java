@@ -4,9 +4,6 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.util.Random;
@@ -17,18 +14,6 @@ public class TesterFx extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*Line line = new Line();
-        line.setStartX(0);
-        line.setStartY(0);
-        line.setEndX(800);
-        line.setEndY(600);
-
-        Rectangle rectangle = new Rectangle();
-        rectangle.setX(150.0f);
-        rectangle.setY(75.0f);
-        rectangle.setWidth(300.0f);
-        rectangle.setHeight(150.0f);*/
-
         Group group = getShapes(20);
         Scene scene = new Scene(group ,WIDTH, HEIGHT);
         stage.setTitle("Java Shapes Task 8");
@@ -48,36 +33,28 @@ public class TesterFx extends Application {
             int choice = generator.nextInt(3);
             switch (choice){
                 case 0:
-                    /*
-                    Circle circle = new Circle();
-                    ru.mirea.ikbo1319.task8.Circle template = new ru.mirea.ikbo1319.task8.Circle()
-                    group.getChildren().add(circle);*/
-
-                    Circle circle = new Circle();
-                    circle.setCenterX(generator.nextInt(800));
-                    circle.setCenterY(generator.nextInt(600));
-                    circle.setRadius(generator.nextInt(30));
-                    circle.setFill(getRandomColor());
-                    group.getChildren().add(circle);
+                    int randomX = generator.nextInt(800);
+                    int randomY = generator.nextInt(600);
+                    Circle templateCircle = new Circle(randomX, randomY, getRandomColor(), generator.nextInt(100));
+                    group.getChildren().add(templateCircle.getEntity());
                     break;
                 case 1:
-                    Rectangle rectangle = new Rectangle();
-                    rectangle.setX(generator.nextInt(800));
-                    rectangle.setY(generator.nextInt(600));
-                    rectangle.setWidth(30.0f);
-                    rectangle.setHeight(15.0f);
-                    rectangle.setFill(getRandomColor());
-                    group.getChildren().add(rectangle);
+                    int randomWidth = generator.nextInt(120);
+                    int randomHeight = generator.nextInt(90);
+                    int randomVertex = generator.nextInt(800);
+                    int randomVertexY = generator.nextInt(600);
+                    Rectangle rectangle = new Rectangle(randomVertex, randomVertexY, getRandomColor(), randomWidth, randomHeight);
+                    group.getChildren().add(rectangle.getEntity());
                     break;
                 case 2:
-                    Polygon polygon = new Polygon();
-                    polygon.getPoints().addAll(new Double[]{
-                            (double) generator.nextInt(800), (double) generator.nextInt(600),
-                            (double) generator.nextInt(800), (double) generator.nextInt(600),
-                            (double) generator.nextInt(800), (double) generator.nextInt(600),
-                    });
-                    polygon.setFill(getRandomColor());
-                    group.getChildren().add(polygon);
+                    int vertex1 = generator.nextInt(800);
+                    int vertex2 = generator.nextInt(600);
+                    int vertex3 = generator.nextInt(800);
+                    int vertex4 = generator.nextInt(600);
+                    int vertex5 = generator.nextInt(800);
+                    int vertex6 = generator.nextInt(600);
+                    Triangle triangle = new Triangle(vertex1, vertex2, getRandomColor(), vertex3, vertex4, vertex5, vertex6);
+                    group.getChildren().add(triangle.getEntity());
             }
         }
         return group;

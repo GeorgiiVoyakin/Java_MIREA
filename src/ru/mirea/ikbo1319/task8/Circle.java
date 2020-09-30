@@ -17,4 +17,13 @@ public class Circle extends Shape {
     public int getRadius() {
         return radius;
     }
+
+    public javafx.scene.shape.Circle getEntity(){
+        javafx.scene.shape.Circle circle = new javafx.scene.shape.Circle();
+        circle.setCenterX(getX());
+        circle.setCenterY(getY());
+        circle.setRadius(getRadius());
+        circle.setFill(getColor());
+        return circle;
+    }
 }

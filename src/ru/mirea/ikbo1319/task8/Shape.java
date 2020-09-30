@@ -30,4 +30,6 @@ public abstract class Shape {
     public Color getColor() {
         return color;
     }
+
+    public abstract Object getEntity();
 }
