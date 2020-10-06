@@ -17,18 +17,27 @@ public class Clicker extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Group group = new Group();
-        Group group2 = TesterFx.getShapes(20);
-        Scene scene2 = new Scene(group2, WIDTH, HEIGHT);
+        StackPane buffer = new StackPane();
 
         Button button = new Button("Click me!");
         StackPane stackPane = new StackPane();
         stackPane.getChildren().add(button);
         Scene scene = new Scene(stackPane,WIDTH, HEIGHT);
 
-        button.setOnAction(e -> stage.setScene(scene2));
+        Button button2 = new Button("Click me!");
+        StackPane stackPane2 = new StackPane();
+        stackPane2.getChildren().add(buffer);
+        stackPane2.getChildren().add(button2);
+        Scene scene2 = new Scene(stackPane2, WIDTH, HEIGHT);
 
-        stage.setTitle("Java Shapes Task 8");
+        button.setOnAction(e -> {
+            buffer.getChildren().clear();
+            buffer.getChildren().add(TesterFx.getShapes(20));
+            stage.setScene(scene2);}
+            );
+        button2.setOnAction(e -> stage.setScene(scene));
+
+        stage.setTitle("Java Shapes and Button Task 9");
         stage.setScene(scene);
 
         stage.show();
