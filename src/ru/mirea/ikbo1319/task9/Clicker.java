@@ -17,8 +17,6 @@ public class Clicker extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        StackPane buffer = new StackPane();
-
         Button button = new Button("Click me!");
         StackPane stackPane = new StackPane();
         stackPane.getChildren().add(button);
@@ -26,13 +24,12 @@ public class Clicker extends Application {
 
         Button button2 = new Button("Click me!");
         StackPane stackPane2 = new StackPane();
-        stackPane2.getChildren().add(buffer);
-        stackPane2.getChildren().add(button2);
         Scene scene2 = new Scene(stackPane2, WIDTH, HEIGHT);
 
         button.setOnAction(e -> {
-            buffer.getChildren().clear();
-            buffer.getChildren().add(TesterFx.getShapes(20));
+            stackPane2.getChildren().clear();
+            stackPane2.getChildren().add(TesterFx.getShapes(20));
+            stackPane2.getChildren().add(button2);
             stage.setScene(scene2);}
             );
         button2.setOnAction(e -> stage.setScene(scene));
