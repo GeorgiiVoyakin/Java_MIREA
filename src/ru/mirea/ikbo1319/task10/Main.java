@@ -11,8 +11,10 @@ public class Main {
 
     public static void func1() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("  : ");
-        System.out.println(summ(0, 0, 2, 5));
+        System.out.print("Введите количество цифр и сумму: ");
+        int k = scanner.nextInt();
+        int s = scanner.nextInt();
+        System.out.println(summ(0, 0, k, s));
     }
 
     public static void func2() {
