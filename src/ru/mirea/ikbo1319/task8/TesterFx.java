@@ -13,7 +13,7 @@ public class TesterFx extends Application {
     final int HEIGHT = 600;
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         Group group = getShapes(20);
         Scene scene = new Scene(group ,WIDTH, HEIGHT);
         stage.setTitle("Java Shapes Task 8");
