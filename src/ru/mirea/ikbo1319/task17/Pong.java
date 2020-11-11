@@ -25,7 +25,6 @@ public class Pong extends Application {
     private static final double paddleWidth = 10;
     private static final double paddleHeight = 100;
     private static final byte paddleSpeed = 12;
-    private static final byte ballK = 4;
     private static final double ballEdge = 15;
     private final Rectangle paddleOne = new Rectangle(paddleWidth, paddleHeight);
     private final Rectangle paddleTwo = new Rectangle(paddleWidth, paddleHeight);
@@ -244,17 +243,15 @@ public class Pong extends Application {
         if (collide()) {
             if (ball.intersects(paddleOne.getBoundsInLocal())) {
                 if (ball.getY() > paddleOne.getY() + paddleHeight / 2) {
-                    direction.setY(direction.getY() + 1);
+                    direction.setY(direction.getY() + 1.5);
                 } else {
-                    direction.setY(direction.getY() - 1);
+                    direction.setY(direction.getY() - 1.5);
                 }
-            }
-
-            if (ball.intersects(paddleTwo.getBoundsInLocal())) {
+            } else {
                 if (ball.getY() > paddleTwo.getY() + paddleHeight / 2) {
-                    direction.setY(direction.getY() + 1);
+                    direction.setY(direction.getY() + 1.5);
                 } else {
-                    direction.setY(direction.getY() - 1);
+                    direction.setY(direction.getY() - 1.5);
                 }
             }
 
@@ -293,7 +290,7 @@ public class Pong extends Application {
                 playerTwo.setText("playerTwo");
                 playerTwo.setX(scoreTwo.getX() - playerTwo.getLayoutBounds().getWidth() / 2);
                 single = false;
-                ballAcceleration = 0.1;
+                ballAcceleration = 1;
                 input.clear();
                 stage.setScene(menuScene);
             });
@@ -347,9 +344,6 @@ public class Pong extends Application {
 
     private void setBallOnStart() {
         direction = new SmartVector();
-
-        direction.setX(direction.getX() * ballK);
-        direction.setY(direction.getY() * ballK);
 
         ball.setX(WIDTH / 2 - ballEdge / 2);
         ball.setY(HEIGHT / 2 - ballEdge / 2);

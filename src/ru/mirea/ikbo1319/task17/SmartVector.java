@@ -10,7 +10,7 @@ public class SmartVector extends Vector{
     public SmartVector() {
         Random generator = new Random();
         double angle = Math.random() > 0.5 ? Math.toRadians(generator.nextInt(121) - 60) : Math.toRadians(generator.nextInt(121) + 120);
-        setX(3 * Math.cos(angle));
-        setY(3 * Math.sin(angle));
+        setX(12 * Math.cos(angle));
+        setY(12 * Math.sin(angle));
     }
 }
