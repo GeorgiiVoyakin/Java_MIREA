@@ -24,8 +24,8 @@ public class Pong extends Application {
     private static final double HEIGHT = 700;
     private static final double paddleWidth = 10;
     private static final double paddleHeight = 100;
-    private static final byte paddleSpeed = 6;
-    private static final byte ballSpeed = 3;
+    private static final byte paddleSpeed = 12;
+    private static final byte ballK = 4;
     private static final double ballEdge = 15;
     private final Rectangle paddleOne = new Rectangle(paddleWidth, paddleHeight);
     private final Rectangle paddleTwo = new Rectangle(paddleWidth, paddleHeight);
@@ -42,6 +42,7 @@ public class Pong extends Application {
     private Scene singleLobby;
     private AnimationTimer gameTimer;
     private boolean single = false;
+    private double ballAcceleration = 1.0;
 
     public static void main(String[] args) {
         launch(args);
@@ -238,13 +239,30 @@ public class Pong extends Application {
             addPoints(scoreOne, playerOne, gameField, stage);
         }
         if (collide()) {
+            if (ball.intersects(paddleOne.getBoundsInLocal())) {
+                if (ball.getY() > paddleOne.getY() + paddleHeight / 2) {
+                    direction.setY(direction.getY() + 1);
+                } else {
+                    direction.setY(direction.getY() - 1);
+                }
+            }
+
+            if (ball.intersects(paddleTwo.getBoundsInLocal())) {
+                if (ball.getY() > paddleTwo.getY() + paddleHeight / 2) {
+                    direction.setY(direction.getY() + 1);
+                } else {
+                    direction.setY(direction.getY() - 1);
+                }
+            }
+
             direction.reverseX();
+            ballAcceleration += 0.1;
         }
         if (ball.getY() < 0 | ball.getY() + ballEdge > HEIGHT) {
             direction.reverseY();
         }
-        ball.setX(ball.getX() + direction.getX());
-        ball.setY(ball.getY() + direction.getY());
+        ball.setX(ball.getX() + direction.getX() * ballAcceleration);
+        ball.setY(ball.getY() + direction.getY() * ballAcceleration);
     }
 
     private void addPoints(Text score, Text player, Group gameField, Stage stage) {
@@ -272,6 +290,7 @@ public class Pong extends Application {
                 playerTwo.setText("playerTwo");
                 playerTwo.setX(scoreTwo.getX() - playerTwo.getLayoutBounds().getWidth() / 2);
                 single = false;
+                ballAcceleration = 0.1;
                 input.clear();
                 stage.setScene(menuScene);
             });
@@ -326,10 +345,12 @@ public class Pong extends Application {
     private void setBallOnStart() {
         direction = new SmartVector();
 
-        direction.setX(direction.getX() * ballSpeed);
-        direction.setY(direction.getY() * ballSpeed);
+        direction.setX(direction.getX() * ballK);
+        direction.setY(direction.getY() * ballK);
 
         ball.setX(WIDTH / 2 - ballEdge / 2);
         ball.setY(HEIGHT / 2 - ballEdge / 2);
+
+        ballAcceleration = 1;
     }
 }
