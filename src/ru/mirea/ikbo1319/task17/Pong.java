@@ -1,4 +1,4 @@
-package ru.mirea.ikbo1319.task17.Pong;
+package ru.mirea.ikbo1319.task17;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -115,7 +115,10 @@ public class Pong extends Application {
         controls.setSpacing(50);
         controls.getChildren().addAll(nickname, start, backToMenu);
 
-        backToMenu.setOnAction(e -> stage.setScene(menuScene));
+        backToMenu.setOnAction(e -> {
+            stage.setScene(menuScene);
+            single = false;
+        });
 
         start.setOnAction(e -> {
             if (!nickname.getText().isEmpty()) {

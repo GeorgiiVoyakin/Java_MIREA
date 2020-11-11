@@ -1,4 +1,4 @@
-package ru.mirea.ikbo1319.task17.Pong;
+package ru.mirea.ikbo1319.task17;
 
 public class ArtificialIntelligence {
     private double y;
