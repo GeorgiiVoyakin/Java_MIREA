@@ -19,12 +19,22 @@ public class Main {
         while (true) {
             try{
                 line = scanner.nextLine();
-                parseLine(line, words);
             } catch (Exception e) {
                 break;
             }
+            parseLine(line, words);
         }
-        System.out.println(line);
+
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(words.entrySet());
+        list.sort(Map.Entry.comparingByValue());
+        Collections.reverse(list);
+
+        System.out.print("Введите сколько слов вывести из списка: ");
+        scanner = new Scanner(System.in);
+        int amount = scanner.nextInt();
+        for (int i = 0; i < amount; i++) {
+            System.out.println((i + 1) + ") " + list.get(i).getKey() + "\t" + list.get(i).getValue());
+        }
     }
 
     private static void parseLine(String line, HashMap<String, Integer> words) {
@@ -32,17 +42,17 @@ public class Main {
             String[] wordsOfLine = line.split(" ");
 
             for (String word : wordsOfLine) {
-                for (char c : word.toCharArray()) {
-                    if (c == 254) {
-                        System.out.println("OK");
-                    }
-                }
+                word = word.replaceAll( "[^a-zA-ZА-Яа-яёЁ]", "");
 
-                if (words.containsKey(word)) {
-                    int tmp = words.get(word);
-                    words.put(word, tmp + 1);
-                } else {
-                    words.put(word, 1);
+                word = word.toLowerCase();
+
+                if (!word.isBlank() & !word.isEmpty()){
+                    if (words.containsKey(word)) {
+                        int tmp = words.get(word);
+                        words.put(word, tmp + 1);
+                    } else {
+                        words.put(word, 1);
+                    }
                 }
             }
         }
